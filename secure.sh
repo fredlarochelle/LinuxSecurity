@@ -52,6 +52,9 @@ echo "blacklist btusb" | sudo tee /etc/modprobe.d/blacklist-bluetooth.conf
 # Permenant bluetooth reactivation
 #rm -v /etc/modprobe.d/blacklist-bluetooth.conf
 
+# Fix gyro problems
+apt-get remove iio-sensor-proxy
+
 # Remove search database
 apt purge mlocate locate
 # To reinstall the search database
@@ -77,6 +80,13 @@ ufw default deny outgoing
 ufw allow out on <interface> to 1.1.1.1 proto udp port 53 comment 'allow DNS on <interface>'
 ufw allow out on <interface> to any proto tcp port 80 comment 'allow HTTP on <interface>'
 ufw allow out on <interface> to any proto tcp port 443 comment 'allow HTTPS on <interface>'
+
+# Github SSH over HTTPS port 443
+cat <<EOT >> ~/.ssh/config
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+EOT
 
 # Turn firewall logging off
 ufw logging off
