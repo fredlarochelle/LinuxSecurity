@@ -40,14 +40,9 @@ sudo rkhunter --check
 sudo apt install tripwire
 cd /etc/tripwire/
 
+# timezone
+sudo timedatectl set-timezone America/Montreal
 
-
-create user
-delete user
-change hostname
-
-ntp
-
-sudo ufw allow out 123 comment 'allow NTP out'
 
 backup duplicati and gdrive?
+email alert?
