@@ -1,0 +1,53 @@
+# update and upgrade system
+sudo apt update
+sudo apt upgrade
+
+# automatic updates
+sudo apt-get install unattended-upgrades
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+
+# change port number, AddressFamily to inet and PermitRootLogin to no
+sudo nano /etc/ssh/ssh_config
+sudo systemctl restart sshd
+
+# firewall
+sudo pat install ufw
+sudo ufw allow "ssh-port"
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+
+# block ping
+# ok icmp codes for input add -A ufw-before-input -p icmp --icmp-type echo-request -j -DROP
+sudo nano /etc/ufw/before.rules
+
+# enable spoof protection, do nott accept ICMP redirect, we are not a router and log martian packets
+nano /etc/sysctl.conf
+
+# fail2ban
+sudo apt install fail2ban
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+
+# rkhunter
+sudo apt install rkhunter
+sudo rkhunter --propupd
+sudo rkhunter --check
+
+# tripwire
+sudo apt install tripwire
+cd /etc/tripwire/
+
+
+
+create user
+delete user
+change hostname
+
+ntp
+
+sudo ufw allow out 123 comment 'allow NTP out'
+
+backup duplicati and gdrive?
