@@ -46,3 +46,6 @@ sudo timedatectl set-timezone America/Montreal
 
 backup duplicati and gdrive?
 email alert?
+
+https://chrisapproved.com/blog/raspberry-pi-hardening.html
+https://www.linode.com/docs/guides/using-fail2ban-to-secure-your-server-a-tutorial/
