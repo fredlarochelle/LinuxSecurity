@@ -24,6 +24,7 @@ sudo ufw enable
 sudo nano /etc/ufw/before.rules
 
 # enable spoof protection, do nott accept ICMP redirect, we are not a router and log martian packets
+# https://itsfoss.com/disable-ipv6-ubuntu-linux/
 nano /etc/sysctl.conf
 
 # fail2ban
